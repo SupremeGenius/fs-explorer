@@ -1,0 +1,10 @@
+<div>
+    <h1>{{currentFolder.fullPath}}</h1>
+    <span *ngIf="isLoading && currentFolder && currentFolder.name">Loading [{{ currentFolder.name }}]...</span>
+    <ul *ngIf="!isLoading" style="margin-left: -40px">
+        <li *ngFor="let folder of currentFolderContent" style="width:100%">
+            <span *ngIf="folder.isDirectory"><a (click)="onSelectFolder(folder)" style="cursor: pointer">[{{ folder.name }}]</a></span>
+            <span *ngIf="!folder.isDirectory"><span>{{ folder.name }}</span> <span style="left: 50%; position:absolute;">[{{folder.fileSize}}]</span></span>
+        </li>
+    </ul>
+</div>
